@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<script>
+			function clicked() {
+				var firstSearchWord = document.getElementById("word1").value;	// Find out what they typed in the first text box
+				var secondSearchWord = document.getElementById("word2").value;	// Find out what they typed in the second text box
+
+				var firstIndex = document.querySelector('body').textContent.indexOf(firstSearchWord) !== -1;
+				var secondIndex = document.querySelector('body').textContent.indexOf(secondSearchWord) !== -1;
+
+				var result = firstIndex && secondIndex;
+
+				alert("First word = '"+firstSearchWord+"'\tIndex = '"+firstIndex+"'\nSecond word = '"+secondSearchWord+"'\tIndex='"+secondIndex+"'\nBoth words appear in the text? '"+result+"'");
+			}
+		</script>
+		<title>JavaScript that searches itself for words.</title>
+	</head>
+	<body>
+		<p>The quick brown fox jumps over the lazy dog.</p>
+		<form>
+			<p>Search for first word <input type="text" id="word1" />.</p>
+			<p>Search for second word <input type="text" id="word2" />.</p>
+			<button onclick="clicked()">Click to search for both words</button> 
+		</form>
+	</body>
+</html>
