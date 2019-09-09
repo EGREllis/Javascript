@@ -1,0 +1,21 @@
+// ==UserScript==
+// @name     TextSearch
+// @description Search a webpage for specific text
+// @include     https://www.bbc.co.uk/news
+// @version  1
+// @grant    none
+// ==/UserScript==
+
+var words, report;
+words = ['later', 'womble']
+
+report=""
+
+for (var i = 0; i < words.length; i++) {
+  if(document.querySelector('body').textContent.indexOf(words[i]) !== -1) {
+    report += words[i]+" : Is present\n";
+  } else {
+    report += words[i]+" : Is not present\n";
+  }
+}
+alert(report);
