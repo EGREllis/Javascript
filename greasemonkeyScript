@@ -12,8 +12,13 @@ words = ['later', 'womble']
 report=""
 
 for (var i = 0; i < words.length; i++) {
-  if(document.querySelector('body').textContent.indexOf(words[i]) !== -1) {
-    report += words[i]+" : Is present\n";
+  var body = document.querySelector('body').textContent;
+  var index = body.indexOf(words[i]);
+  if(index !== -1) {
+    var sampleSize = 20
+  	var start = Math.max(index-sampleSize, 0);
+  	var stop = Math.min(index+sampleSize, body.length);
+    report += words[i]+" : Is present '"+document.querySelector('body').textContent.slice(start, stop)+"'\n";
   } else {
     report += words[i]+" : Is not present\n";
   }
